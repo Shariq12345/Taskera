@@ -27,9 +27,9 @@
 ## Tech Stack
 
 - **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: Firebase Firestore
+- **Backend**: Apprwrite
 - **Icons**: Lucide Icons
-- **State Management**: React hooks, Context API
+- **State Management**: React hooks
 - **UI Components**: shadcn UI, Custom components
 - **Deployment**: Vercel
 
@@ -40,4 +40,4 @@ To get started with Taskera, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/taskera.git
+   git clone https://github.com/Shariq12345/Taskera.git
