@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Taskera
 
-## Getting Started
+**Taskera** is a modern, sleek, and professional task management platform designed for seamless collaboration. This project focuses on creating a fully responsive and stylish UI, featuring workspace management, team collaboration, task tracking, and notifications. Built using Next.js, Tailwind CSS, and integrated with Firebase, Taskera provides users with an intuitive experience to manage tasks efficiently in a team environment.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Workspace Management**: Create, edit, and delete workspaces. Invite team members and manage workspace settings.
+- **Task Management**: Organize, prioritize, and track tasks for multiple projects within a workspace.
+- **Team Collaboration**: Manage team members, assign roles, and collaborate on tasks with real-time updates.
+- **Notifications**: Stay updated with task changes and team activities through in-app notifications.
+- **Responsive Design**: Fully responsive design for both desktop and mobile views.
+- **Quick Search**: Search for tasks, projects, and members with an integrated search bar.
+- **User Authentication**: Secure authentication with Firebase to manage user accounts and sessions.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Apprwrite
+- **Icons**: Lucide Icons
+- **State Management**: React hooks
+- **UI Components**: shadcn UI, Custom components
+- **Deployment**: Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To get started with Taskera, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/Shariq12345/Taskera.git
