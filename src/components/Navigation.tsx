@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -9,7 +9,6 @@ import {
   SettingsIcon,
   UsersIcon,
   ChevronRight,
-  LayoutDashboard,
   Calendar,
   Bell,
 } from "lucide-react";
@@ -19,8 +18,6 @@ import {
   GoHome,
   GoHomeFill,
 } from "react-icons/go";
-import { Separator } from "./ui/separator";
-import { Button } from "./ui/button";
 import {
   Tooltip,
   TooltipContent,

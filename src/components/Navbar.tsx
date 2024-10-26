@@ -3,7 +3,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@/features/auth/components/user-button";
 import { MobileSidebar } from "./mobile-sidebar";
-import { Bell, Search, Plus, Command } from "lucide-react";
+// import { Bell, Search, Plus, Command } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Plus, Search } from "lucide-react";
 
 // Function to match dynamic workspace routes
 const getPageTitle = (pathname: string) => {

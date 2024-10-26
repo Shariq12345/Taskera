@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback} from "@/components/ui/avatar";
 import { Loader2, LogOut, User, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCurrent } from "../api/use-current";

@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 import { Navigation } from "./Navigation";
 import { Button } from "./ui/button";
 import { WorkspaceSwitcher } from "./workspace-switcher";
-import { ChevronRight } from "lucide-react";
+import { Projects } from "./projects";
 
 export const Sidebar = () => {
   return (
@@ -41,6 +41,9 @@ export const Sidebar = () => {
       <WorkspaceSwitcher />
 
       <Navigation />
+
+      <Separator className="my-4" />
+      <Projects />
 
       <div className="mt-auto">
         <Separator className="my-4" />

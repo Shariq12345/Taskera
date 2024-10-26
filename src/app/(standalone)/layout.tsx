@@ -45,7 +45,7 @@ const StandaloneLayout = ({ children }: StandaloneLayoutProps) => {
               </h1>
               <p className="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto px-4 sm:px-6">
                 Create your first workspace and start organizing your projects.
-                We're here to help you collaborate better!
+                We&apos;re here to help you collaborate better!
               </p>
             </div>
 

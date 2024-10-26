@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { Card } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { useCreateWorkspaceModal } from "@/features/workspaces/hooks/use-create-workspace-modal";
@@ -48,7 +47,7 @@ export const WorkspaceSwitcher = () => {
                 <Plus className="size-4 text-neutral-600 group-hover:text-neutral-900 transition-all" />
               </button>
             </TooltipTrigger>
-            <TooltipContent>Create new workspace</TooltipContent>
+            <TooltipContent>New Workspace</TooltipContent>
           </Tooltip>
         </div>
 

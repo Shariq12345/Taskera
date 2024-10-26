@@ -5,7 +5,8 @@ import { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-// import { motion } from "framer-motion";
+import { createProjectSchema } from "../schemas";
+import { useCreateProject } from "../api/use-create-project";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
@@ -19,32 +20,33 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 // import { Separator } from "@/components/ui/separator";
 import { Building2, ImageIcon, Loader2 } from "lucide-react";
-import { useCreateWorkspace } from "../api/use-create-workspace";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
-import { createWorkspaceSchema } from "../schemas";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 
-interface CreateWorkspaceFormProps {
+interface CreateProjectFormProps {
   onCancel?: () => void;
 }
 
-export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
+export const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
+  const workspaceId = useWorkspaceId();
   const router = useRouter();
-  const { mutate, isPending } = useCreateWorkspace();
+  const { mutate, isPending } = useCreateProject();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const form = useForm<z.infer<typeof createWorkspaceSchema>>({
-    resolver: zodResolver(createWorkspaceSchema),
+  const form = useForm<z.infer<typeof createProjectSchema>>({
+    resolver: zodResolver(createProjectSchema.omit({ workspaceId: true })),
     defaultValues: {
       name: "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof createWorkspaceSchema>) => {
+  const onSubmit = async (values: z.infer<typeof createProjectSchema>) => {
     const finalValues = {
       ...values,
+      workspaceId,
       image: values.image instanceof File ? values.image : "",
     };
     mutate(
@@ -52,7 +54,8 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
       {
         onSuccess: ({ data }) => {
           form.reset();
-          router.push(`/workspaces/${data.$id}`);
+          // TODO: Redirect to project page
+          router.push(`/workspaces/${workspaceId}/projects/${data.$id}`);
         },
       }
     );
@@ -74,11 +77,11 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
             <Building2 className="w-6 h-6 text-primary" />
           </div>
           <CardTitle className="md:text-xl text-2xl font-semibold">
-            Create Workspace
+            Create Project
           </CardTitle>
         </div>
         <p className="text-sm text-muted-foreground">
-          Create a new workspace to organize your projects.
+          Create a new project to start collaborating with your team.
         </p>
       </CardHeader>
       {/* <Separator className="mx-0" /> */}
@@ -99,7 +102,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                               ? URL.createObjectURL(field.value)
                               : field.value
                           }
-                          alt="Workspace Image"
+                          alt="Project Image"
                           fill
                           className="object-cover"
                         />
@@ -112,7 +115,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                       </Avatar>
                     )}
                     <div className="flex flex-col">
-                      <p className="text-sm text">Workspace Icon</p>
+                      <p className="text-sm text">Project Icon</p>
                       <p className="text-xs text-muted-foreground">
                         JPG, PNG, SVG or JPEG up to 1MB
                       </p>
@@ -163,11 +166,11 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Workspace Name</FormLabel>
+                  <FormLabel>Project Name</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Enter workspace name"
+                      placeholder="Enter project name"
                       className="h-11"
                       disabled={isPending}
                     />

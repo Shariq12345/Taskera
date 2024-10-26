@@ -57,7 +57,7 @@ export const JoinWorkspaceForm = ({
                 Join Workspace
               </CardTitle>
               <CardDescription className="text-base mt-1">
-                You've been invited to join
+                You&apos;ve been invited to join
               </CardDescription>
             </div>
           </div>
@@ -87,7 +87,7 @@ export const JoinWorkspaceForm = ({
             <ul className="space-y-2 text-sm text-blue-600">
               <li className="flex items-center gap-2">
                 <ArrowRight className="size-4 flex-shrink-0" />
-                <span>You'll get immediate access to the workspace</span>
+                <span>You&apos;ll get immediate access to the workspace</span>
               </li>
               <li className="flex items-center gap-2">
                 <ArrowRight className="size-4 flex-shrink-0" />

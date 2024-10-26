@@ -1,10 +1,9 @@
 "use client";
-import React, { Fragment } from "react";
+import React from "react";
 import { useWorkspaceId } from "../hooks/use-workspace-id";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeftIcon, MoreVerticalIcon, Users2 } from "lucide-react";
-import Link from "next/link";
+import { MoreVerticalIcon, Users2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
@@ -92,7 +91,7 @@ export const MembersList = () => {
 
         <CardContent className="p-0">
           <div className="divide-y divide-gray-100">
-            {data?.documents.map((member, index) => (
+            {data?.documents.map((member) => (
               <div
                 key={member.$id}
                 className="flex items-center gap-4 p-4 sm:p-6 hover:bg-gray-50/50 transition-colors"
