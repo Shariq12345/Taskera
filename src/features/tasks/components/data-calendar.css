@@ -1,0 +1,60 @@
+/* Header Styling */
+.rbc-header {
+  @apply text-sm font-semibold pb-4 text-gray-700 border-b-2 border-gray-200;
+}
+
+/* Removing Borders Between Headers */
+.rbc-header + .rbc-header {
+  @apply border-l-0;
+}
+
+/* Button Styling for Links */
+.rbc-button-link {
+  @apply text-xs font-medium text-gray-500 hover:text-gray-700 transition-colors duration-200;
+}
+
+/* Month Row Styling */
+.rbc-month-row {
+  @apply min-h-[200px] border-t border-x border-gray-200 rounded-lg shadow-sm;
+}
+
+/* Rounded Corners for First and Last Rows */
+:not(.rbc-month-row ~ .rbc-month-row).rbc-month-row {
+  @apply rounded-t-md;
+}
+.rbc-month-row:last-of-type {
+  @apply border-b rounded-b-md;
+}
+
+/* Month View Container */
+.rbc-month-view {
+  @apply border-none;
+}
+
+/* Date Cell Styling */
+.rbc-date-cell {
+  @apply p-2 rounded-md hover:bg-gray-100 transition duration-200;
+}
+
+/* Today Highlight */
+.rbc-today {
+  background-color: rgba(0, 123, 255, 0.1);
+  @apply rounded-md font-bold;
+}
+
+/* Off-range Background */
+.rbc-off-range-bg {
+  background: inherit;
+  @apply text-gray-400;
+}
+
+/* Events Styling */
+.rbc-event {
+  @apply p-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-md font-medium shadow-sm hover:shadow-md transition duration-200;
+}
+
+/* Multi-Day Event */
+.rbc-event.rbc-event-continues-earlier,
+.rbc-event.rbc-event-continues-later {
+  @apply bg-blue-100 text-blue-800;
+}
