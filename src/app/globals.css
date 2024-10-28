@@ -6,6 +6,36 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Default: Hidden scrollbar */
+.sidebar {
+  scrollbar-width: none; /* Firefox */
+  overflow-y: auto; /* Ensure the sidebar can scroll */
+  transition: scrollbar-width 0.2s ease-in-out; /* Smooth transition for Firefox */
+}
+.sidebar::-webkit-scrollbar {
+  width: 0; /* Chrome, Safari, Opera */
+}
+
+/* Show scrollbar on hover */
+.sidebar:hover {
+  scrollbar-width: thin; /* Firefox */
+}
+.sidebar:hover::-webkit-scrollbar {
+  width: 8px; /* Visible scrollbar width on hover */
+  transition: width 0.2s ease-in-out; /* Smooth transition for Chrome, Safari */
+}
+.sidebar:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.6); /* Slate-500 color */
+  border-radius: 9999px;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition for thumb color */
+}
+.sidebar:hover::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.8);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -118,10 +118,10 @@ export const Navbar = () => {
             </DialogContent>
           </Dialog>
 
-          <Button size="sm" className="hidden md:flex items-center gap-2 h-9">
+          {/* <Button size="sm" className="hidden md:flex items-center gap-2 h-9">
             <Plus className="size-4" />
             New Task
-          </Button>
+          </Button> */}
 
           <UserButton />
         </div>

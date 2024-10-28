@@ -3,7 +3,7 @@
 import React from "react";
 import { useGetWorkspaces } from "@/features/workspaces/api/use-get-workspaces";
 import { WorkspaceAvatar } from "@/features/workspaces/components/workspace-avatar";
-import { Plus } from "lucide-react";
+import { Plus, Loader2 } from "lucide-react"; // Import Loader2 icon
 import {
   Select,
   SelectContent,
@@ -24,7 +24,7 @@ import {
 export const WorkspaceSwitcher = () => {
   const router = useRouter();
   const workspaceId = useWorkspaceId();
-  const { data: workspaces } = useGetWorkspaces();
+  const { data: workspaces, isLoading } = useGetWorkspaces(); // Destructuring isLoading
   const { open } = useCreateWorkspaceModal();
 
   const onSelect = (workspaceId: string) => {
@@ -51,33 +51,40 @@ export const WorkspaceSwitcher = () => {
           </Tooltip>
         </div>
 
-        <Select onValueChange={onSelect} value={workspaceId}>
-          <SelectTrigger className="w-full bg-white/80 hover:bg-white transition-colors border border-neutral-200 rounded-lg shadow-sm">
-            <SelectValue
-              placeholder="Select workspace"
-              className="text-neutral-600"
-            />
-          </SelectTrigger>
-          <SelectContent className="bg-white/95 backdrop-blur-lg border border-neutral-200">
-            {workspaces?.documents.map((workspace) => (
-              <SelectItem
-                key={workspace.$id}
-                value={workspace.$id}
-                className="hover:bg-neutral-100 transition-colors focus:bg-neutral-100 cursor-pointer"
-              >
-                <div className="flex items-center gap-3 py-1">
-                  <WorkspaceAvatar
-                    name={workspace.name}
-                    image={workspace.imageUrl}
-                  />
-                  <span className="truncate font-medium text-neutral-700">
-                    {workspace.name}
-                  </span>
-                </div>
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {isLoading ? (
+          <div className="flex justify-center items-center py-6">
+            <Loader2 className="animate-spin h-5 w-5 text-neutral-500" />{" "}
+            {/* Spinner */}
+          </div>
+        ) : (
+          <Select onValueChange={onSelect} value={workspaceId}>
+            <SelectTrigger className="w-full bg-white/80 hover:bg-white transition-colors border border-neutral-200 rounded-lg shadow-sm">
+              <SelectValue
+                placeholder="Select workspace"
+                className="text-neutral-600"
+              />
+            </SelectTrigger>
+            <SelectContent className="bg-white/95 backdrop-blur-lg border border-neutral-200">
+              {workspaces?.documents.map((workspace) => (
+                <SelectItem
+                  key={workspace.$id}
+                  value={workspace.$id}
+                  className="hover:bg-neutral-100 transition-colors focus:bg-neutral-100 cursor-pointer"
+                >
+                  <div className="flex items-center gap-3 py-1">
+                    <WorkspaceAvatar
+                      name={workspace.name}
+                      image={workspace.imageUrl}
+                    />
+                    <span className="truncate font-medium text-neutral-700">
+                      {workspace.name}
+                    </span>
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
       </div>
     </TooltipProvider>
   );
