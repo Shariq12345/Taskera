@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   AlertTriangle,
+  ArrowLeft,
   Building2,
   CopyIcon,
   ImageIcon,
@@ -33,6 +34,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { useDeleteWorkspace } from "../api/use-delete-workspace";
 import { toast } from "sonner";
 import { useResetInviteCode } from "../api/use-reset-invite-code";
+import { useRouter } from "next/navigation";
 
 interface EditWorkspaceFormProps {
   onCancel?: () => void;
@@ -43,7 +45,7 @@ export const EditWorkspaceForm = ({
   onCancel,
   initialValues,
 }: EditWorkspaceFormProps) => {
-  // const router = useRouter();
+  const router = useRouter();
   const { mutate, isPending } = useUpdateWorkspace();
   const { mutate: deleteWorkspace, isPending: isDeleting } =
     useDeleteWorkspace();
@@ -92,14 +94,7 @@ export const EditWorkspaceForm = ({
       ...values,
       image: values.image instanceof File ? values.image : "",
     };
-    mutate(
-      { form: finalValues, param: { workspaceId: initialValues.$id } },
-      {
-        onSuccess: () => {
-          form.reset();
-        },
-      }
-    );
+    mutate({ form: finalValues, param: { workspaceId: initialValues.$id } });
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -157,7 +152,7 @@ export const EditWorkspaceForm = ({
       <Card className="w-full max-w-2xl mx-auto border shadow-md">
         <CardHeader className="border-b bg-white/80 backdrop-blur-sm p-4 sm:p-6">
           <div className="flex items-center gap-4">
-            {/* <Button
+            <Button
               size="sm"
               variant="ghost"
               onClick={
@@ -168,14 +163,15 @@ export const EditWorkspaceForm = ({
               className="hover:bg-gray-100"
             >
               <ArrowLeft className="size-4" />
-            </Button> */}
+            </Button>
             <div className="flex items-center gap-3 sm:gap-4 flex-1">
               <div className="p-2 sm:p-2.5 bg-primary/10 rounded-full">
                 <Building2 className="size-4 sm:size-5 text-primary" />
               </div>
               <div className="flex-1">
                 <CardTitle className="text-lg sm:text-xl font-semibold">
-                  Update <span className="text-blue-600">Workspace</span>
+                  Update{" "}
+                  <span className="text-blue-600">{initialValues.name}</span>
                 </CardTitle>
                 <p className="text-sm text-muted-foreground mt-1">
                   Customize your workspace settings and appearance

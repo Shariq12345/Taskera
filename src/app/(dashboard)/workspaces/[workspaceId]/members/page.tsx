@@ -8,7 +8,7 @@ const WorkspaceIdMemberPage = async () => {
   if (!user) redirect("/");
 
   return (
-    <div className="">
+    <div>
       <MembersList />
     </div>
   );
