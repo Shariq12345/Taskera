@@ -17,8 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Building2, CalendarCheck, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { CalendarCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { DatePicker } from "@/components/date-picker";
@@ -45,7 +44,6 @@ export const CreateTaskForm = ({
   projectOptions,
 }: CreateTaskFormProps) => {
   const workspaceId = useWorkspaceId();
-  const router = useRouter();
   const { mutate, isPending } = useCreateTask();
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
@@ -59,7 +57,7 @@ export const CreateTaskForm = ({
     mutate(
       { json: { ...values, workspaceId } },
       {
-        onSuccess: ({ data }) => {
+        onSuccess: () => {
           form.reset();
           onCancel?.();
         },

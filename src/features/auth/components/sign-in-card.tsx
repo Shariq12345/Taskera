@@ -3,6 +3,7 @@ import React from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -145,6 +146,7 @@ export const SignInCard = () => {
           </div>
 
           <Button
+            onClick={() => signUpWithGoogle()}
             disabled={isPending}
             variant="secondary"
             size="lg"
@@ -155,6 +157,7 @@ export const SignInCard = () => {
           </Button>
 
           <Button
+            onClick={() => signUpWithGithub()}
             disabled={isPending}
             variant="secondary"
             size="lg"

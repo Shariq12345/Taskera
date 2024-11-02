@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Task } from "../types";
 import { Button } from "@/components/ui/button";
-import { ArrowUpDown, Clock, Calendar, MoreVerticalIcon } from "lucide-react";
+import { ArrowUpDown, Calendar, MoreVerticalIcon } from "lucide-react";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { TaskDate } from "./task-date";

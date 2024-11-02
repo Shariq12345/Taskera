@@ -9,8 +9,6 @@ import {
   SettingsIcon,
   UsersIcon,
   ChevronRight,
-  Calendar,
-  Bell,
 } from "lucide-react";
 import {
   GoCheckCircle,
@@ -42,13 +40,13 @@ const routes = [
     activeIcon: GoCheckCircleFill,
     color: "text-green-500",
   },
-  {
-    label: "Calendar",
-    href: "/calendar",
-    icon: Calendar,
-    activeIcon: Calendar,
-    color: "text-purple-500",
-  },
+  // {
+  //   label: "Calendar",
+  //   href: "/tasks?task-view=calendar",
+  //   icon: Calendar,
+  //   activeIcon: Calendar,
+  //   color: "text-purple-500",
+  // },
   {
     label: "Members",
     href: "/members",
@@ -56,13 +54,13 @@ const routes = [
     activeIcon: UsersIcon,
     color: "text-orange-500",
   },
-  {
-    label: "Notifications",
-    href: "/notifications",
-    icon: Bell,
-    activeIcon: Bell,
-    color: "text-pink-500",
-  },
+  // {
+  //   label: "Notifications",
+  //   href: "/notifications",
+  //   icon: Bell,
+  //   activeIcon: Bell,
+  //   color: "text-pink-500",
+  // },
   {
     label: "Settings",
     href: "/settings",

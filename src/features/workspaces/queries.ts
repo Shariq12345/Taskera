@@ -2,7 +2,6 @@
 
 import { Query } from "node-appwrite";
 import { DATABASE_ID, MEMBERS_ID, WORKSPACES_ID } from "@/config";
-import { getMember } from "../members/utils";
 import { Workspace } from "./type";
 import { createSessionClient } from "@/lib/appwrite";
 

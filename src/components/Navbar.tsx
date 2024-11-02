@@ -13,8 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Plus, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 // Function to match dynamic workspace routes
 const getPageTitle = (pathname: string) => {
@@ -22,6 +21,8 @@ const getPageTitle = (pathname: string) => {
     return "Workspace Settings";
   } else if (/^\/workspaces\/\w+\/members$/.test(pathname)) {
     return "Team Members";
+  } else if (/^\/workspaces\/\w+\/tasks$/.test(pathname)) {
+    return "Tasks";
   } else if (/^\/workspaces\/\w+$/.test(pathname)) {
     return "Dashboard";
   }
@@ -42,6 +43,8 @@ const getPageDescription = (pathname: string) => {
     return "Manage your workspace settings and preferences.";
   } else if (/^\/workspaces\/\w+\/members$/.test(pathname)) {
     return "Manage your team members.";
+  } else if (/^\/workspaces\/\w+\/tasks$/.test(pathname)) {
+    return "View and manage your tasks.";
   } else if (/^\/workspaces\/\w+$/.test(pathname)) {
     return "Monitor all of your projects and tasks in one place.";
   }
@@ -76,11 +79,6 @@ export const Navbar = () => {
               <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
                 {pageTitle}
               </h1>
-              {pathname === "/" && (
-                <Badge variant="secondary" className="font-normal">
-                  12 active projects
-                </Badge>
-              )}
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400">
               {pageDescription}

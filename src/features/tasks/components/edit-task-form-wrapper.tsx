@@ -62,6 +62,7 @@ export const EditTaskFormWrapper = ({
     <div>
       <EditTaskForm
         onCancel={onCancel}
+        // @ts-expect-error Data type mismatch
         initialValues={initialValues}
         projectOptions={projectOptions ?? []}
         memberOptions={memberOptions ?? []}

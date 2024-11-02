@@ -17,9 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { DatePicker } from "@/components/date-picker";
 import {
   Select,
@@ -46,8 +44,8 @@ export const EditTaskForm = ({
   projectOptions,
   initialValues,
 }: EditTaskFormProps) => {
-  const workspaceId = useWorkspaceId();
-  const router = useRouter();
+  // const workspaceId = useWorkspaceId();
+  // const router = useRouter();
   const { mutate, isPending } = useUpdateTask();
 
   const form = useForm<z.infer<typeof createTaskSchema>>({
@@ -71,7 +69,7 @@ export const EditTaskForm = ({
         },
       },
       {
-        onSuccess: ({ data }) => {
+        onSuccess: () => {
           form.reset();
           onCancel?.();
         },

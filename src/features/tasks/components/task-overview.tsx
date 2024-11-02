@@ -2,7 +2,6 @@ import React from "react";
 import { Task } from "../types";
 import { Button } from "@/components/ui/button";
 import { PencilIcon, UserCircle, Calendar, Clock } from "lucide-react";
-import { MemberAvatar } from "@/features/members/components/member-avatar";
 import TaskDate from "./task-date";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";

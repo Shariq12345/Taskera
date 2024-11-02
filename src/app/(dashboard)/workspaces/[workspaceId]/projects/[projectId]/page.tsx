@@ -1,7 +1,6 @@
 import React from "react";
 import { getCurrent } from "@/features/auth/queries";
 import { redirect } from "next/navigation";
-import { getProject } from "@/features/projects/queries";
 import { ProjectClient } from "./client";
 
 const ProjectIdPage = async () => {

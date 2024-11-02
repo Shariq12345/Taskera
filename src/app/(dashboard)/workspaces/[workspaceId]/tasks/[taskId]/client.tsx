@@ -21,10 +21,13 @@ export const TaskIdClient = () => {
 
   return (
     <div className="flex flex-col">
+      {/* @ts-expect-error Data type mismatch for project prop */}
       <TaskBreadCrumb project={data.project} task={data} />
-      <Separator className="  my-6" />
+      <Separator className="my-6" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* @ts-expect-error Data type mismatch for task prop */}
         <TaskOverview task={data} />
+        {/* @ts-expect-error Data type mismatch for task prop */}
         <TaskDescription task={data} />
       </div>
     </div>

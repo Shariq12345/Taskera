@@ -11,6 +11,7 @@ const ErrorPage = () => {
   const [retrying, setRetrying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [timeElapsed, setTimeElapsed] = useState(0);
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [showTip, setShowTip] = useState(false);
   const [currentTip, setCurrentTip] = useState(0);
 

@@ -27,6 +27,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { registerSchema } from "../schemas";
 import { useRegister } from "@/features/auth/api/use-register";
+import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 
 export const SignUpCard = () => {
   const { mutate, isPending } = useRegister();
@@ -57,6 +58,7 @@ export const SignUpCard = () => {
             </div>
 
             <Button
+              onClick={() => signUpWithGoogle()}
               disabled={isPending}
               variant="secondary"
               size="lg"
@@ -66,6 +68,7 @@ export const SignUpCard = () => {
             </Button>
 
             <Button
+              onClick={() => signUpWithGithub()}
               disabled={isPending}
               variant="secondary"
               size="lg"
